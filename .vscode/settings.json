@@ -1,4 +1,5 @@
 {
     "python.pythonPath": "/Users/garett/.pyenv/versions/3.8.5/bin/python",
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true
 }

@@ -1,6 +1,6 @@
 from PIL import Image
 
-def convert(img, tolerance = 1):
+def convert_image_1bit(img, tolerance = 1):
     finalim = Image.new("1", img.size)
 
     cnt = 0
@@ -25,7 +25,7 @@ def convert(img, tolerance = 1):
 
     return finalim
 
-def convert_color(img, color1, color2, tolerance = 1):
+def convert_image_1bit_color(img, color1, color2, tolerance = 1):
     finalim = Image.new("RGBA", img.size)
 
     cnt = 0
@@ -51,7 +51,7 @@ def convert_color(img, color1, color2, tolerance = 1):
 
     return finalim
 
-def convert_pixelated(img, pixelsize):
+def convert_image_pixelate(img, pixelsize):
     img = img.resize((img.size[0] - (img.size[0] % pixelsize), img.size[1] - (img.size[1] % pixelsize)))
     finalim = Image.new("RGBA", img.size)
 
@@ -76,9 +76,8 @@ def convert_pixelated(img, pixelsize):
 
     return finalim
 
-im = Image.open("skull2.jpg")
+#im = Image.open("skull2.jpg")
 
-final = convert_pixelated(im, 20)
-#final = convert_color(final, (0, 255, 0), (0, 0, 0), 0.8)
-final.show()
-
+# final = convert_pixelated(im, 8)
+# final = convert_color(final, (0, 255, 0), (0, 0, 0), 0.8)
+# final.show()
