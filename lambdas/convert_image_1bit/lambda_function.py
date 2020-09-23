@@ -1,5 +1,7 @@
 import json
 from PIL import Image
+from io import BytesIO
+import base64
 
 def convert_image_1bit(img, tolerance = 1):
     finalim = Image.new("1", img.size)
@@ -27,13 +29,24 @@ def convert_image_1bit(img, tolerance = 1):
     return finalim
 
 def lambda_handler(event, context):
-    #print("event: ", event)
-    #print(event['body'])
-    convert_image_1bit(event['body'])
+    # event = { "body": "none" }
+    print("event: ", event)
+    print(event['body'])
+    
+    base64Bytes = event['body'].split(',')[1]
+    image = Image.open(BytesIO(base64.b64decode(base64Bytes)))
+    
+    image = convert_image_1bit(image)
+    
+    buffered = BytesIO()
+    image.save(buffered, format="JPEG")
+    img_str = base64.b64encode(buffered.getvalue()).decode('utf')
+    
+    print("encoded: ", img_str)
     
     return {
         'statusCode': 200,
-        'body': json.dumps(event['body']),
+        'body': json.dumps(img_str),
         'headers': {
             "Access-Control-Allow-Headers" : "Content-Type,Access-Control-Allow-Origin",
             "Access-Control-Allow-Origin": "*",
