@@ -6,6 +6,7 @@ import Slider from '../Slider/Slider';
 
 const PictureBox = () => {
 	const [currentPic, setCurrentPic] = useState('');
+	const [pixelateSize, setPixelateSize] = useState(1);
 	const picRef = useRef();
 
 	const dragOver = (e) => {
@@ -52,7 +53,11 @@ const PictureBox = () => {
 	const invokeLambda = async (e, url) => {
 		await axios.post(
 			url,
-			currentPic
+			//currentPic
+			{
+				image: currentPic,
+				pixelSize: pixelateSize,
+			}
 		).then((result) => {
 			updateImage(result.data);
 		}).catch((error) => {
@@ -60,9 +65,14 @@ const PictureBox = () => {
 		});
 	}
 
+	const handleSliderChange = (value, id) => {
+		setPixelateSize(value);
+	}
+
 	return (
 		<div>
-			<div className="container"
+			<div
+				className="container"
 				onDragOver={dragOver}
 				onDragEnter={dragEnter}
 				onDragLeave={dragLeave}
@@ -70,14 +80,29 @@ const PictureBox = () => {
 			>
 				<div className="pic-container" ref={picRef}></div>
 			</div>
-			<div>
-				<button onClick={
-					(e) => invokeLambda(e, 'https://1kuxdq4rzi.execute-api.us-east-2.amazonaws.com/prod/convert-image-1bit')
-				}>1-bit</button>
-				<button onClick={
-					(e) => invokeLambda(e, 'https://1kuxdq4rzi.execute-api.us-east-2.amazonaws.com/prod/convert_image_pixelate')
-				}>pixelate</button>
-				<Slider />
+			<div className="input-container">
+				<div className="button-container">
+					<button
+						className="button"
+						onClick={
+							(e) => invokeLambda(e, 'https://1kuxdq4rzi.execute-api.us-east-2.amazonaws.com/prod/convert-image-1bit')
+						}
+					>
+						1-bit
+					</button>
+				</div>
+				<div className="button-container">
+					<button
+						className="button"
+						onClick={
+							(e) => invokeLambda(e, 'https://1kuxdq4rzi.execute-api.us-east-2.amazonaws.com/prod/convert_image_pixelate')
+						}
+					>
+						pixelate
+					</button>
+					<Slider id="1" onChange={handleSliderChange} value={pixelateSize} />
+					<div>{pixelateSize}</div>
+				</div>
 			</div>
 		</div>
 	)

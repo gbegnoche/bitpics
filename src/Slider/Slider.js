@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Slider = () => {
-	const [value, setValue] = useState(1);
-
-	const change = (e) => {
-		setValue(e.target.value);
+const Slider = ({value, onChange, id}) => {
+	const handleChange = (e) => {
+		const value = e.target.value;
+		onChange(value, id);
 	}
 
 	return (
-		<div>
+		<div className="slider">
 			<input
 				type="range"
 				min="1"
-				max="20"
+				max="40"
 				step="1"
 				value={value}
-				onChange={change}
+				onChange={handleChange}
 			/>
 		</div>
 	);
