@@ -3,10 +3,13 @@ import './PictureBox.css';
 import axios from 'axios';
 
 import Slider from '../Slider/Slider';
+import ColorPicker from '../ColorPicker/ColorPicker';
 
 const PictureBox = () => {
 	const [currentPic, setCurrentPic] = useState('');
 	const [pixelateSize, setPixelateSize] = useState(1);
+	const [colors, setColors] = useState(['#FFFFFF', '#000000']);
+
 	const picRef = useRef();
 
 	const dragOver = (e) => {
@@ -53,10 +56,11 @@ const PictureBox = () => {
 	const invokeLambda = async (e, url) => {
 		await axios.post(
 			url,
-			//currentPic
 			{
 				image: currentPic,
 				pixelSize: pixelateSize,
+				color1: colors[0],
+				color2: colors[1],
 			}
 		).then((result) => {
 			updateImage(result.data);
@@ -67,6 +71,11 @@ const PictureBox = () => {
 
 	const handleSliderChange = (value, id) => {
 		setPixelateSize(value);
+	}
+
+	const handleColorPickerChange = (value, id) => {
+		colors[id] = value;
+		setColors([...colors]);
 	}
 
 	return (
@@ -90,6 +99,8 @@ const PictureBox = () => {
 					>
 						1-bit
 					</button>
+					<ColorPicker id={0} value={colors[0]} onChange={handleColorPickerChange} />
+					<ColorPicker id={1} value={colors[1]} onChange={handleColorPickerChange} />
 				</div>
 				<div className="button-container">
 					<button
@@ -100,7 +111,7 @@ const PictureBox = () => {
 					>
 						pixelate
 					</button>
-					<Slider id="1" onChange={handleSliderChange} value={pixelateSize} />
+					<Slider id="pixel-size-slider" onChange={handleSliderChange} value={pixelateSize} />
 					<div>{pixelateSize}</div>
 				</div>
 			</div>

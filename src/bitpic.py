@@ -1,4 +1,5 @@
-from PIL import Image
+from PIL import Image, ImageColor
+import time
 
 def convert_image_1bit(img, tolerance = 1):
     finalim = Image.new("1", img.size)
@@ -28,10 +29,17 @@ def convert_image_1bit(img, tolerance = 1):
 def convert_image_1bit_color(img, color1, color2, tolerance = 1):
     finalim = Image.new("RGBA", img.size)
 
+    if (isinstance(color1, str)):
+        color1 = ImageColor.getrgb(color1)
+    if (isinstance(color2, str)):
+        color2 = ImageColor.getrgb(color2)
+
     cnt = 0
     ttl = 0
-    for x in range(img.size[0]):
-        for y in range(img.size[1]):
+    stepx = int(img.size[0] / 10)
+    stepy = int(img.size[1] / 10)
+    for x in range(0, img.size[0], stepx):
+        for y in range(0, img.size[1], stepy):
             pix = img.getpixel((x, y))
             val = (pix[0] + pix[1] + pix[2]) / 3
             ttl += val
@@ -43,7 +51,6 @@ def convert_image_1bit_color(img, color1, color2, tolerance = 1):
         for y in range(img.size[1]):
             pix = img.getpixel((x, y))
             val = (pix[0] + pix[1] + pix[2]) / (3 * tolerance)
-            #print("val: ", val)
             if val >= avg:
                 finalim.putpixel((x, y), color1)
             else:
@@ -76,8 +83,8 @@ def convert_image_pixelate(img, pixelsize):
 
     return finalim
 
-#im = Image.open("skull2.jpg")
+im = Image.open("skull2.jpg")
 
 # final = convert_pixelated(im, 8)
-# final = convert_color(final, (0, 255, 0), (0, 0, 0), 0.8)
-# final.show()
+final = convert_image_1bit_color(im, '#00FF00', '#000000', 1)
+final.show()
