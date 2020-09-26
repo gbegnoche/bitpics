@@ -6,6 +6,7 @@ import Slider from '../Slider/Slider';
 import ColorPicker from '../ColorPicker/ColorPicker';
 
 const PictureBox = () => {
+	const [originalPic, setOriginalPic] = useState('');
 	const [currentPic, setCurrentPic] = useState('');
 	const [pixelateSize, setPixelateSize] = useState(1);
 	const [colors, setColors] = useState(['#FFFFFF', '#000000']);
@@ -28,26 +29,28 @@ const PictureBox = () => {
 		e.preventDefault();
 		const files = e.dataTransfer.files;
 		if (files.length === 1) {
-			handleFile(files[0]);
+			const file = files[0];
+			const supportedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+			if (supportedTypes.indexOf(file.type) !== -1) {
+				const reader = new FileReader();
+				reader.readAsDataURL(file);
+				reader.onload = function(e) {
+					updateImage(e.target.result, true);
+				}
+			} else {
+				alert('file type not supported. supported types are jpeg, jpg, and png');
+			}
 		} else {
 			alert('one file at a time please')
 		}
 	}
 
-	const handleFile = (file) => {
-		const supportedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-		if (supportedTypes.indexOf(file.type) !== -1) {
-			const reader = new FileReader();
-			reader.readAsDataURL(file);
-			reader.onload = function(e) {
-				updateImage(e.target.result);
-			}
-		}
-	}
-
-	const updateImage = (base64) => {
+	const updateImage = (base64, newImageFlag = false) => {
 		if (base64.substring(0, 4) !== 'data') {
 			base64 = 'data:image/png;base64,' + base64;
+		}
+		if (newImageFlag) {
+			setOriginalPic(base64);
 		}
 		setCurrentPic(base64);
 		picRef.current.style.backgroundImage = `url(${base64})`;
@@ -76,6 +79,10 @@ const PictureBox = () => {
 	const handleColorPickerChange = (value, id) => {
 		colors[id] = value;
 		setColors([...colors]);
+	}
+
+	const handleRevert = () => {
+		updateImage(originalPic);
 	}
 
 	return (
@@ -113,6 +120,9 @@ const PictureBox = () => {
 					</button>
 					<Slider id="pixel-size-slider" onChange={handleSliderChange} value={pixelateSize} />
 					<div>{pixelateSize}</div>
+				</div>
+				<div className="button-container">
+					<button className="button" onClick={handleRevert}>revert</button>
 				</div>
 			</div>
 		</div>
