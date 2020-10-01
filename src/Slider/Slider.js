@@ -7,16 +7,15 @@ const Slider = ({value, onChange, id}) => {
 	}
 
 	return (
-		<div className="slider">
-			<input
-				type="range"
-				min="1"
-				max="40"
-				step="1"
-				value={value}
-				onChange={handleChange}
-			/>
-		</div>
+		<input
+			style={{width: "100%"}}
+			type="range"
+			min="2"
+			max="40"
+			step="1"
+			value={value}
+			onChange={handleChange}
+		/>
 	);
 }
 

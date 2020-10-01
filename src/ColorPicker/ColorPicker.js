@@ -8,9 +8,7 @@ const ColorPicker = ({value, onChange, id}) => {
 	}
 
 	return (
-		<div>
-			<input id={id} type="color" value={value} onChange={handleChange} />
-		</div>
+		<input id={id} type="color" value={value} onChange={handleChange} />
 	)
 }
 

@@ -83,8 +83,58 @@ def convert_image_pixelate(img, pixelsize):
 
     return finalim
 
-im = Image.open("skull2.jpg")
+def convert_image_saturate(img):
+    finalimg = img
+    for x in range(img.size[0]):
+        for y in range(img.size[1]):
+            pxl = img.getpixel((x, y))
+            newpxl = [0, 0, 0]
+            for z in range(0, 3):
+                if (pxl[z] > 128):
+                    newpxl[z] = 255
+                else:
+                    newpxl[z] = 0
+            finalimg.putpixel((x, y), tuple(newpxl))
+                    
+    return finalimg
+
+def convert_image_saturate_with_sensitivity(img, sensitivity = 8):
+    finalimg = img
+    sensitivity = pow(2, sensitivity)
+    for x in range(img.size[0]):
+        for y in range(img.size[1]):
+            pxl = img.getpixel((x, y))
+            newpxl = [0, 0, 0]
+            for z in range(0, 3):
+                for bar in range(0, 257, sensitivity):
+                    if pxl[z] in range(bar - int(sensitivity / 2), int(bar + sensitivity / 2)):
+                        if bar - 1 < 0:
+                            newpxl[z] = 0
+                            break
+                        else:
+                            newpxl[z] = bar - 1
+                            break
+                        
+            finalimg.putpixel((x, y), tuple(newpxl))
+                    
+    return finalimg
+
+def reduceImage(img, maxSize = 600):
+    finalImg = img
+    x = im.size[0]
+    y = im.size[1]
+    if x > maxSize or y > maxSize:
+        if im.size[0] >= im.size[1]:
+            factor = maxSize / x
+            finalImg = im.resize((maxSize, int(y * factor)), 3, None, 2)
+    return finalImg
+
+im = Image.open("city.jpeg")
 
 # final = convert_pixelated(im, 8)
-final = convert_image_1bit_color(im, '#00FF00', '#000000', 1)
+# final = convert_image_1bit_color(im, '#00FF00', '#000000', 1)
+# final = convert_image_saturate(im)
+# final = convert_image_saturate_with_sensitivity(im, 6)
+final = reduceImage(im, 1200)
+
 final.show()
