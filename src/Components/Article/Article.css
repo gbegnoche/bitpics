@@ -1,0 +1,22 @@
+.article-container {
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+	font-family: 'Courier New', Courier, monospace;
+	margin-top: 3rem;
+}
+
+.article-bg {
+	width: 50%;
+	background-color: rgb(224, 224, 224);
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-title {
+	margin-top: 1rem;
+
+}

@@ -1,0 +1,27 @@
+a, a:link, a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+.nav {
+	font-family: "Courier New", monospace;
+}
+
+.nav-bg {
+	background-color: #7fa1ca;
+	width: 100%;
+}
+
+.logo, .logo:hover {
+	margin-left: 30px;
+	text-decoration: none;
+	color: black;
+	font-size: 2rem;
+	font-weight: bold
+}
+
+.nav-item, .nav-item:hover {
+	margin-left: 30px;
+	color: black;
+	font-size: 1rem;
+}
