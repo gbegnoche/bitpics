@@ -8,6 +8,7 @@ const NaviBar = () => {
 				<a class="logo" href="/">the gort</a>
 				<a class="nav-item" href="/">home</a>
 				<a class="nav-item" href="/BitPic">bitpic</a>
+				<a class="nav-item" href="/Peaks">peaks</a>
 			</div>
 		</div>
 	);

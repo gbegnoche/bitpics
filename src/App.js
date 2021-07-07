@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import BitPic from './Pages/BitPic/BitPic';
+import Peaks from './Pages/Peaks';
 import NaviBar from './Components/NaviBar/NaviBar';
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home}/>
           <Route path='/BitPic' component={BitPic}/>
+          <Route path='/Peaks' component={Peaks}/>
         </Switch>
       </Router>
     </div>
