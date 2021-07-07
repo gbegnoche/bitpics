@@ -1,0 +1,18 @@
+.peak-container {
+	margin-top: 10px;
+	display: flex;
+	align-content: left;
+	width: max-content;
+	height: 30px;
+}
+
+.peak-container span {
+	margin-top: auto;
+	margin-bottom: 0px
+}
+
+.checkmark {
+	max-width: 100%;
+	max-height: 100%;
+	margin-right: 10px;
+}
