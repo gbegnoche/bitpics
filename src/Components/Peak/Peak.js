@@ -1,15 +1,16 @@
 import React from 'react';
-import fire from '../../fire.gif';
+import fire from '../../Pictures/fire.gif';
 import './Peak.css';
 
 const Peak = ({peak, complete}) => {
 	let checkmark;
 
 	if (complete) {
-		checkmark = <img class="checkmark" src={fire} alt="complete!" />
+		checkmark = <img className="checkmark" src={fire} alt="complete!" />
 	}
+
 	return (
-		<div class="peak-container">
+		<div className="peak-container">
 			{checkmark}
 			<span>{peak}</span>
 		</div>

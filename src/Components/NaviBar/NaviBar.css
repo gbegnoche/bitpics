@@ -17,6 +17,6 @@
 
 .nav-item, .nav-item:link, .nav-item:hover, .nav-link:visited {
 	margin-left: 30px;
-	color: rgb(244, 244, 244);
+	color: rgb(244, 244, 244) !important;
 	font-size: 1rem;
 }

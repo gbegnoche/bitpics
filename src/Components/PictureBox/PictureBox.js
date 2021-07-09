@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
-import './PictureBox.css';
 import axios from 'axios';
-
 import Slider from '../Slider/Slider';
 import ColorPicker from '../ColorPicker/ColorPicker';
+import loadGif from '../../Pictures/loading.gif';
+import './PictureBox.css';
 
 const PictureBox = () => {
 	const [originalPic, setOriginalPic] = useState('');
@@ -112,15 +112,15 @@ const PictureBox = () => {
 	}
 
 	return (
-		<div>
-			<div class="button-container">
-				<label class="file-upload">
+		<div className="page-container">
+			<div className="button-container">
+				<label className="file-upload">
 					<input type="file" onChange={upload} />
-					upload
+					upload 
 				</label>
 			</div>
 			<div
-				className="container"
+				className="dropzone"
 				onDragOver={dragOver}
 				onDragEnter={dragEnter}
 				onDragLeave={dragLeave}
@@ -182,7 +182,7 @@ const PictureBox = () => {
 				</div>
 				<img
 					className="modal-image"
-					src="https://media1.tenor.com/images/58484d9ab6e028fa2a68dd9018565cd3/tenor.gif?itemid=10128491"
+					src={loadGif}
 					alt="loading"
 				/>
 			</div>

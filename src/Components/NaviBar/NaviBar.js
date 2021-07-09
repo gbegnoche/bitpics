@@ -3,12 +3,12 @@ import './NaviBar.css';
 
 const NaviBar = () => {
 	return (
-		<div class="nav">
-			<div class="nav-bg">
-				<a class="logo" href="/">the gort</a>
-				<a class="nav-item" href="/">home</a>
-				<a class="nav-item" href="/BitPic">bitpic</a>
-				<a class="nav-item" href="/Peaks">peaks</a>
+		<div className="nav">
+			<div className="nav-bg">
+				<a className="logo" href="/">the gort</a>
+				<a className="nav-item" href="/">home</a>
+				<a className="nav-item" href="/BitPic">bitpic</a>
+				<a className="nav-item" href="/Peaks">peaks</a>
 			</div>
 		</div>
 	);

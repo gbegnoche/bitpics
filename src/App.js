@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import BitPic from './Pages/BitPic/BitPic';
-import Peaks from './Pages/Peaks';
+import Peaks from './Pages/Peaks/Peaks';
 import NaviBar from './Components/NaviBar/NaviBar';
 
 function App() {

@@ -4,10 +4,69 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-image: url("./skeleton1.gif");
+  background-image: url("./Pictures/skeleton1.gif");
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a, a:link, a:hover {
+  color:rgb(0, 255, 0);
+}
+
+a:visited {
+  color: rgb(0, 175, 0);
+}
+
+
+.page-container {
+	width: 50%;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+  color: rgb(244, 244, 244);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.input-container {
+  display: flex;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.button, .file-upload {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(122, 122, 122);
+  color: rgb(244, 244, 244);
+  font-size: large;
+  text-align: center;
+  border: transparent 3px solid;
+  border-radius: 18px;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.button:hover, .file-upload:hover {
+  background-color: transparent;
+  transition: all 0.2s;
+  border: 3px solid rgb(0, 255, 0);
+  color: rgb(0, 255, 0);
+  font-weight: bold;
+}
+
+.button:active, .file-upload:active {
+  background-color: rgb(0, 255, 0);
+}
+

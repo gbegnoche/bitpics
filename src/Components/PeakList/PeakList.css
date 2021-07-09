@@ -4,12 +4,15 @@
   align-items: center;
   justify-content: center;
 	font-family: 'Courier New', Courier, monospace;
+	font-weight: bold;
 	color: rgb(244, 244, 244);
-	margin-top: 3rem;
+	margin-top: 2rem;
+	margin-bottom: 4rem;
 }
 
 .peaklist-bg {
-	width: 30%;
+	width: 50%;
+	padding-top: 2rem;
 	background-color: rgb(122, 122, 122);
 	display: flex;
   flex-direction: column;
@@ -17,12 +20,8 @@
   justify-content: center;
 }
 
-.peaklist-title {
-	margin-top: 1rem;
-	color: rgb(0, 255, 0);
-}
-
-.peaklist-content {
-	margin-left: 2rem;
-	margin-right: 2rem;
+.peakbagger-link {
+	font-size: smaller;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
 }

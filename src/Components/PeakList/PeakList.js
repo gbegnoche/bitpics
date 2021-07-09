@@ -1,19 +1,13 @@
 import React from 'react';
-import { PEAKS, COMPLETED } from './constants';
 import Peak from '../Peak/Peak';
 import './PeakList.css';
 
-const PeakList = () => {
+const PeakList = ({peaks}) => {
 	return (
-		<div class="peaklist-container">
-			<div class="peaklist-bg">
-				{PEAKS.map((value, index) => {
-					let done;
-					if (COMPLETED.includes(value)) {
-						done = true;
-					}
-					return (<Peak peak={value} complete={done} />);
-				})}
+		<div className="peaklist-container">
+			<div className="peaklist-bg">
+				{peaks.map((peak, index) => <Peak key={index} peak={peak.name} complete={peak.complete} />)}
+				<a href="https://www.peakbagger.com/climber/climber.aspx?cid=33995" className="peakbagger-link">peakbagger profile</a>
 			</div>
 		</div>
 	);

@@ -1,5 +1,6 @@
 .peak-container {
-	margin-top: 10px;
+	margin-top: 4px;
+	margin-bottom: 4px;
 	display: flex;
 	align-content: left;
 	width: max-content;
