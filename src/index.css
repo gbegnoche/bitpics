@@ -16,7 +16,7 @@ a, a:link, a:hover {
   color:rgb(0, 255, 0);
 }
 
-a:visited {
+a:visited, a:visited:hover {
   color: rgb(0, 175, 0);
 }
 

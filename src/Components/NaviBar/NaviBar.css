@@ -7,7 +7,7 @@
 	width: 100%;
 }
 
-.logo, .logo:link, .logo:hover, .logo:visited {
+.logo, .logo:link, .logo:hover, .logo:visited, .logo:visited:hover {
 	margin-left: 30px;
 	text-decoration: none;
 	color: rgb(0, 255, 0);
@@ -15,8 +15,8 @@
 	font-weight: bold
 }
 
-.nav-item, .nav-item:link, .nav-item:hover, .nav-link:visited {
+.nav-item, .nav-item:link, .nav-item:hover, .nav-item:visited, .nav-item:visited:hover {
 	margin-left: 30px;
-	color: rgb(244, 244, 244) !important;
+	color: rgb(244, 244, 244);
 	font-size: 1rem;
 }
