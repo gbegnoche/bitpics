@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import Slider from '../Slider/Slider';
-import ColorPicker from '../ColorPicker/ColorPicker';
 import loadGif from '../../Pictures/loading.gif';
 import './PictureBox.css';
 
@@ -94,7 +93,9 @@ const PictureBox = () => {
 		setPixelateSize(value);
 	}
 
-	const handleColorPickerChange = (value, id) => {
+	const handleColorPickerChange = (e, id) => {
+		e.preventDefault();
+		const value = e.target.value;
 		colors[id] = value;
 		setColors([...colors]);
 	}
@@ -139,8 +140,8 @@ const PictureBox = () => {
 						1-bit
 					</button>
 					<div style={{flexDirection: "row", justifyContent: "space-between"}}>
-						<ColorPicker id={0} value={colors[0]} onChange={handleColorPickerChange} />
-						<ColorPicker id={1} value={colors[1]} onChange={handleColorPickerChange} />
+						<input id={0} type="color" value={colors[0]} onChange={e => handleColorPickerChange(e, 0)} />
+						<input id={1} type="color" value={colors[1]} onChange={e => handleColorPickerChange(e, 1)} />
 					</div>
 					<div style={{width: "100%"}}>
 						<label className="color-label">color1</label>
