@@ -2,7 +2,7 @@ import React from 'react';
 import Article from '../../Components/Article/Article';
 
 const Music = () => {
-	const content = 'please don\'t steal it.';
+	const content = 'please steal it.';
 
 	const playerStyle = {
 		fontSize: '10px',

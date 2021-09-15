@@ -174,6 +174,24 @@ const PictureBox = () => {
 						</button>
 				</div>
 				<div className="button-container">
+					<button
+						className="button"
+						onClick={
+							(e) => invokeLambda(e, 'https://1kuxdq4rzi.execute-api.us-east-2.amazonaws.com/prod/convert_dot_matrix')
+						}
+					>
+						dot matrix
+					</button>
+					<div style={{flexDirection: "row", justifyContent: "space-between"}}>
+						<input id={2} type="color" value={colors[2]} onChange={e => handleColorPickerChange(e, 2)} />
+						<input id={3} type="color" value={colors[3]} onChange={e => handleColorPickerChange(e, 3)} />
+					</div>
+					<div style={{width: "100%"}}>
+						<label className="color-label">color1</label>
+						<label className="color-label">color2</label>
+					</div>
+				</div>
+				<div className="button-container">
 					<button className="button" onClick={handleRevert}>revert</button>
 				</div>
 			</div>
