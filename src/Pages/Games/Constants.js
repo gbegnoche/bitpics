@@ -1,0 +1,6 @@
+export const theSpringening = <iframe title="spring" src="https://itch.io/embed-upload/2044984?color=e1ffbd" allowfullscreen="" width="1024" height="788" frameborder="0"><a href="https://slimdev.itch.io/the-spring-en-ing">Play The Spring-en-ing on itch.io</a></iframe>;
+export const rejse = <iframe title="rejse" src="https://itch.io/embed-upload/1404666?color=6f6f6f" allowfullscreen="" width="500" height="320" frameborder="0"><a href="https://slimdev.itch.io/rejse">Play Rejse on itch.io</a></iframe>;
+export const instabilityDetected = <iframe title="detect" src="https://itch.io/embed-upload/4557893?color=2d2d2d" allowfullscreen="" width="768" height="1100" frameborder="0"><a href="https://slimdev.itch.io/instability-detected">Play instability detected on itch.io</a></iframe>;
+export const notUnderwater = <iframe title="water" src="https://itch.io/embed-upload/1320944?color=36424c" allowfullscreen="" width="640" height="660" frameborder="0"><a href="https://slimdev.itch.io/notunderwater">Play !Underwater on itch.io</a></iframe>;
+export const seage = <iframe title="seage" src="https://itch.io/embed-upload/1700844?color=333333" allowfullscreen="" width="500" height="320" frameborder="0"><a href="https://slimdev.itch.io/seage">Play Seage on itch.io</a></iframe>;
+

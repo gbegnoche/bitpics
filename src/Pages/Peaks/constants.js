@@ -56,4 +56,6 @@ export const COMPLETED = [
 	'TableTop',
 	'Rocky Peak',
 	'Phelps',
+	'Porter',
+	'Cascade',
 ];

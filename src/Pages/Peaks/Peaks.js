@@ -45,6 +45,7 @@ const Peaks = () => {
 	const [peaks, setPeaks] = useState(getAllPeaks());
 	const content = "this page is dedicated to the peaks i've climbed out of the 46 high peaks of the adirondacks."
 	+ " can i climb them all? or will i perish in the wilderness?";
+	const ps = <a href="https://www.peakbagger.com/climber/climber.aspx?cid=33995" className="peakbagger-link">peakbagger profile</a>;
 
 	const handleAllClick = (e) => {
 		setPeaks(getAllPeaks());
@@ -60,7 +61,7 @@ const Peaks = () => {
 
 	return (
 		<div className="page-container">
-			<Article title="can gort climb 46 mountains?" content={content} />
+			<Article title="can gort climb 46 mountains?" content={content} ps={ps}/>
 			<div className="input-container">
 				<div className="button-container">
 					<button className="button" onClick={handleAllClick}>all</button>

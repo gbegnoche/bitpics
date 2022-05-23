@@ -4,6 +4,7 @@ import Home from './Pages/Home/Home';
 import BitPic from './Pages/BitPic/BitPic';
 import Music from './Pages/Music/Music';
 import Peaks from './Pages/Peaks/Peaks';
+import Games from './Pages/Games/Games';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Link className="nav-item" to="/BitPic">bitpic</Link>
             <Link className="nav-item" to="/Music">music</Link>
             <Link className="nav-item" to="/Peaks">peaks</Link>
+            <Link className="nav-item" to="/Games">games</Link>
           </div>
         </div>
         <Switch>
@@ -30,6 +32,7 @@ function App() {
           <Route path='/BitPic' component={BitPic}/>
           <Route path='/Music' component={Music}/>
           <Route path='/Peaks' component={Peaks}/>
+          <Route path='/Games' component={Games}/>
         </Switch>
       </Router>
     </div>
